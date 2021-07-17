@@ -14,7 +14,7 @@ export const errorHandler = (
   }
 
   if (error instanceof DatabaseConnectionError) {
-    return response.status(500).send({ errors: [{ message: error.reason }]})
+    return response.status(error.statusCode).send({ errors: error.serializeErrors() })
   }
 
   response.status(400).send({ errors: [{ message: 'Something went wrong' }] })

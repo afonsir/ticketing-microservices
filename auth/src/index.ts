@@ -26,12 +26,7 @@ app.use(errorHandler)
 
 const start = async () => {
   try {
-    await mongoose.connect('mongodb://auth-mongo-cip-srv:27017/auth', {
-      // in Mongoose v6, do not add these options
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useCreateIndex: true
-    })
+    await mongoose.connect('mongodb://auth-mongo-cip-srv:27017/auth')
   } catch (error) {
     console.error(error)
   }

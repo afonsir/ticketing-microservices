@@ -1,6 +1,6 @@
 import express from 'express'
 import 'express-async-errors'
-import mongoose, { mongo } from 'mongoose'
+import mongoose from 'mongoose'
 
 import { currentUserRouter } from './routes/current-user'
 import { signinRouter } from './routes/signin'
@@ -27,6 +27,7 @@ app.use(errorHandler)
 const start = async () => {
   try {
     await mongoose.connect('mongodb://auth-mongo-cip-srv:27017/auth', {
+      // in Mongoose v6, do not add these options
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useCreateIndex: true

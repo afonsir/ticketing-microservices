@@ -37,3 +37,11 @@ minikube ip
 ```bash
 skaffold dev
 ```
+
+## Kubernetes
+
+- Create a JWT secret:
+
+```bash
+kubectl create secret generic jwt-secret --from-literal=JWT_KEY=<SECRET_VALUE>
+```

@@ -35,6 +35,10 @@ app.all('*', async (request, response) => {
 app.use(errorHandler)
 
 const start = async () => {
+  if (!process.env.JWT_KEY) {
+    throw new Error('JWT_KEY must be defined')
+  }
+
   try {
     await mongoose.connect('mongodb://auth-mongo-cip-srv:27017/auth')
   } catch (error) {

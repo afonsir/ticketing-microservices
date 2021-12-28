@@ -25,7 +25,7 @@ router.post(
     const errors = validationResult(request)
 
     if (!errors.isEmpty()) {
-      throw new RequestValidationError(errors.array());
+      throw new RequestValidationError(errors.array())
     }
 
     const { email, password } = request.body
@@ -52,6 +52,7 @@ router.post(
     }
 
     response.status(201).send(user)
-})
+  }
+)
 
 export { router as signupRouter }

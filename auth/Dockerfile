@@ -4,7 +4,10 @@ WORKDIR /app
 
 COPY package.json yarn.lock ./
 
-RUN yarn install --production
+# TODO: add production script
+# RUN yarn install --production
+
+RUN yarn install
 
 COPY . .
 

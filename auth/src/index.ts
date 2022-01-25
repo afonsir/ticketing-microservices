@@ -7,8 +7,12 @@ const start = async () => {
     throw new Error('JWT_KEY must be defined')
   }
 
+  if (!process.env.MONGODB_URI) {
+    throw new Error('MONGODB_URI must be defined')
+  }
+
   try {
-    await mongoose.connect('mongodb://auth-mongo-cip-srv:27017/auth')
+    await mongoose.connect(process.env.MONGODB_URI)
   } catch (error) {
     console.error(error)
   }
